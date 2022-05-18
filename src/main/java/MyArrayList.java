@@ -2,7 +2,6 @@ import java.lang.reflect.Array;
 
 public class MyArrayList<E> {
     private E[] arrayOfObject;
-    private E[] newArrayOfObject;
     private final Class<E> clazz;
     private int indexOfFirstEmptySpace;
 
