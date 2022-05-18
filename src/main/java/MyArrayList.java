@@ -12,29 +12,35 @@ public class MyArrayList {
         this.indexOfFirstEmptySpace = innerArrayOfObject.length;
     }
 
-    public void add(Integer value) {
-        if (arrayOfObject.length - 1 == indexOfFirstEmptySpace){
+    public MyArrayList add(Integer value) {
+        if (arrayOfObject.length == indexOfFirstEmptySpace){
             resize();
         }
         arrayOfObject[indexOfFirstEmptySpace] = value;
         indexOfFirstEmptySpace++;
+        return this;
     }
-    public void remove(int index){
+    public MyArrayList remove(int index){
         if (index == indexOfFirstEmptySpace-1){
             arrayOfObject[index] = null;
             indexOfFirstEmptySpace--;
+            return this;
         }
 
-        if (indexOfFirstEmptySpace - 2 - index >= 0)
-            System.arraycopy(arrayOfObject, index + 1, arrayOfObject, index, indexOfFirstEmptySpace - 2 - index);
+        if (indexOfFirstEmptySpace - 1 - index >= 0) {
+            System.arraycopy(arrayOfObject, index + 1, arrayOfObject, index, indexOfFirstEmptySpace - 1 - index);
+            indexOfFirstEmptySpace--;
+            return this;
+        }
         if (index >= indexOfFirstEmptySpace){
             throw new IndexOutOfBoundsException();
         }
-
+        return this;
     }
-    public void clear() {
+    public MyArrayList clear() {
         this.arrayOfObject = new Integer[10];
         this.indexOfFirstEmptySpace = 0;
+        return this;
     }
     public Integer size() {
         return indexOfFirstEmptySpace;
