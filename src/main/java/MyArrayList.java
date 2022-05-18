@@ -1,18 +1,24 @@
-public class MyArrayList {
-    private Integer[] arrayOfObject;
+import java.lang.reflect.Array;
+
+public class MyArrayList<E> {
+    private E[] arrayOfObject;
+    private E[] newArrayOfObject;
+    private final Class<E> clazz;
     private int indexOfFirstEmptySpace;
 
-    public MyArrayList() {
-        this.arrayOfObject = new Integer[10];
+    public MyArrayList(Class<E> clazz) {
+        this.arrayOfObject = (E[]) Array.newInstance(clazz, 10);
         this.indexOfFirstEmptySpace = 0;
+        this.clazz = clazz;
     }
 
-    public MyArrayList(Integer[] innerArrayOfObject) {
+    public MyArrayList(E[] innerArrayOfObject) {
         this.arrayOfObject = innerArrayOfObject.clone();
         this.indexOfFirstEmptySpace = innerArrayOfObject.length;
+        this.clazz = (Class<E>) innerArrayOfObject[0].getClass();
     }
 
-    public MyArrayList add(Integer value) {
+    public MyArrayList add(E value) {
         if (arrayOfObject.length == indexOfFirstEmptySpace){
             resize();
         }
@@ -38,15 +44,15 @@ public class MyArrayList {
         return this;
     }
     public MyArrayList clear() {
-        this.arrayOfObject = new Integer[10];
+        this.arrayOfObject = (E[]) Array.newInstance(clazz, 10);
         this.indexOfFirstEmptySpace = 0;
         return this;
     }
-    public Integer size() {
+    public int size() {
         return indexOfFirstEmptySpace;
     }
-    public Integer get(int index) {
-        Integer result;
+    public E get(int index) {
+        E result;
         try {
             result = arrayOfObject[index];
         } catch (IndexOutOfBoundsException e) {
@@ -56,7 +62,7 @@ public class MyArrayList {
     }
     private void resize(){
         int newSizeOfArrayOfObject = (int) (indexOfFirstEmptySpace * 1.5);
-        Integer[] newArrayOfObject = new Integer[newSizeOfArrayOfObject];
+        E[] newArrayOfObject = (E[]) Array.newInstance(clazz, newSizeOfArrayOfObject);
         if (indexOfFirstEmptySpace >= 0)
             System.arraycopy(arrayOfObject, 0, newArrayOfObject, 0, indexOfFirstEmptySpace);
         arrayOfObject = newArrayOfObject;
