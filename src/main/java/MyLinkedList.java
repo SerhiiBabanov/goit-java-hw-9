@@ -1,9 +1,9 @@
 import java.util.Objects;
 
 public class MyLinkedList<E> {
-    private Node headNode;
-    private Node lastNode;
-    private int countElement;
+    protected Node headNode;
+    protected Node lastNode;
+    protected int countElement;
 
     public MyLinkedList() {
         this.headNode =null;
