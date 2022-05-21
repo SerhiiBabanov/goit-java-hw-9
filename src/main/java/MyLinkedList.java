@@ -6,14 +6,14 @@ public class MyLinkedList<E> {
     protected int countElement;
 
     public MyLinkedList() {
-        this.headNode =null;
+        this.headNode = null;
     }
 
 
     public MyLinkedList add(E value) {
         Node node = new Node();
         node.data = value;
-        if (Objects.isNull(headNode) ){
+        if (Objects.isNull(headNode)) {
             headNode = node;
             lastNode = node;
         } else {
@@ -24,13 +24,14 @@ public class MyLinkedList<E> {
         countElement++;
         return this;
     }
-    public MyLinkedList remove(int index){
+
+    public MyLinkedList remove(int index) {
         Node currentNode = headNode;
-        while (index!=0){
+        while (index != 0) {
             index--;
             currentNode = currentNode.next;
         }
-        if (currentNode == headNode){
+        if (currentNode == headNode) {
             headNode = headNode.next;
             countElement--;
         } else if (currentNode == lastNode) {
@@ -43,22 +44,35 @@ public class MyLinkedList<E> {
         }
         return this;
     }
+
     public MyLinkedList clear() {
         headNode = null;
         lastNode = null;
         countElement = 0;
         return this;
     }
+
     public int size() {
 
         return countElement;
     }
+
     public E get(int index) {
-        Node currentNode = headNode;
-        while (index!=0){
-            index--;
-            currentNode = currentNode.next;
+        Node currentNode = null;
+        if (((countElement - index) / (countElement * 1.0)) < 0.5) {
+            currentNode = lastNode;
+            while (index != countElement - 1    ) {
+                index++;
+                currentNode = currentNode.previous;
+            }
+        } else {
+            currentNode = headNode;
+            while (index != 0) {
+                index--;
+                currentNode = currentNode.next;
+            }
         }
+
         return currentNode.data;
     }
 
