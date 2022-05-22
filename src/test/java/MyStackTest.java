@@ -5,50 +5,51 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MyStackTest {
 
-    private MyStack<Integer> testQueqe;
+    private MyStack<Integer> testQueue;
+
     @BeforeEach
     void setUp() {
-        testQueqe = new MyStack<>();
+        testQueue = new MyStack<>();
     }
 
     @Test
     void peek() {
-        testQueqe.push(0).push(1).push(2);
-        assertEquals(testQueqe.peek(), 2, "must be 2");
+        testQueue.push(0).push(1).push(2);
+        assertEquals(testQueue.peek(), 2, "must be 2");
     }
 
     @Test
     void pool() {
-        testQueqe.push(0).push(1).push(2);
-        assertEquals(testQueqe.pool(), 2, "must be 2");
-        assertEquals(testQueqe.size(), 2);
-        assertEquals(testQueqe.pool(), 1, "must be 1");
-        assertEquals(testQueqe.size(), 1);
+        testQueue.push(0).push(1).push(2);
+        assertEquals(testQueue.pop(), 2, "must be 2");
+        assertEquals(testQueue.size(), 2);
+        assertEquals(testQueue.pop(), 1, "must be 1");
+        assertEquals(testQueue.size(), 1);
     }
 
     @Test
     void push() {
-        assertEquals(testQueqe.push(1).push(2).size(), 2);
+        assertEquals(testQueue.push(1).push(2).size(), 2);
     }
 
     @Test
     void remove() {
-        assertEquals(testQueqe.push(0).push(1).push(2).push(3).size(), 4);
-        assertEquals(testQueqe.remove(0).size(),3);
-        assertEquals(testQueqe.remove(1).size(),2);
-        assertEquals(testQueqe.remove(1).size(),1);
+        assertEquals(testQueue.push(0).push(1).push(2).push(3).size(), 4);
+        assertEquals(testQueue.remove(0).size(), 3);
+        assertEquals(testQueue.remove(1).size(), 2);
+        assertEquals(testQueue.remove(1).size(), 1);
     }
 
     @Test
     void clear() {
-        assertEquals(testQueqe.push(0).push(1).size(), 2);
-        assertEquals(testQueqe.clear().size(), 0);
+        assertEquals(testQueue.push(0).push(1).size(), 2);
+        assertEquals(testQueue.clear().size(), 0);
     }
 
     @Test
     void size() {
-        assertEquals(testQueqe.push(0).push(1).size(), 2);
-        assertEquals(testQueqe.clear().size(), 0);
+        assertEquals(testQueue.push(0).push(1).size(), 2);
+        assertEquals(testQueue.clear().size(), 0);
 
     }
 

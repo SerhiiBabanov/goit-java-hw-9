@@ -58,10 +58,10 @@ public class MyLinkedList<E> {
     }
 
     public E get(int index) {
-        Node currentNode = null;
+        Node currentNode;
         if (((countElement - index) / (countElement * 1.0)) < 0.5) {
             currentNode = lastNode;
-            while (index != countElement - 1    ) {
+            while (index != countElement - 1) {
                 index++;
                 currentNode = currentNode.previous;
             }

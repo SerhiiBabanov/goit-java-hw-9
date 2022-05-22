@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MyLinkedListTest {
     private MyLinkedList<Integer> testList;
+
     @BeforeEach
     void setUp() {
         testList = new MyLinkedList();

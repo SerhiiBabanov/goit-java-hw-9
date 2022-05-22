@@ -6,26 +6,31 @@ public class MyQueue<E> {
     public MyQueue() {
         myLinkedList = new MyLinkedList();
     }
-    public MyQueue add(E value){
+
+    public MyQueue add(E value) {
         myLinkedList.add(value);
         return this;
     }
-    public MyQueue remove(int index){
+
+    public MyQueue remove(int index) {
         myLinkedList.remove(index);
         return this;
     }
-    public MyQueue clear(){
+
+    public MyQueue clear() {
         myLinkedList.clear();
         return this;
     }
-    public int size(){
+
+    public int size() {
         return myLinkedList.size();
     }
 
-    public E peek(){
+    public E peek() {
         return myLinkedList.get(0);
     }
-    public E pool(){
+
+    public E pool() {
         E result = myLinkedList.get(0);
         this.remove(0);
         return result;
