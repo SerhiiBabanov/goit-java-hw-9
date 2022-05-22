@@ -8,7 +8,7 @@ class MyLinkedListTest {
 
     @BeforeEach
     void setUp() {
-        testList = new MyLinkedList();
+        testList = new MyLinkedList<Integer>();
     }
 
     @Test

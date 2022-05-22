@@ -7,7 +7,8 @@ public class MyArrayList<E> {
 
     /**
      * Create new object of MyArrayList.
-     * @param clazz  Class of storage objects.
+     *
+     * @param clazz Class of storage objects.
      */
     public MyArrayList(Class<E> clazz) {
         this.array = (E[]) Array.newInstance(clazz, 10);
@@ -17,6 +18,7 @@ public class MyArrayList<E> {
 
     /**
      * Create new object of MyArrayList.
+     *
      * @param array Array of storage objects.
      */
     public MyArrayList(E[] array) {
@@ -27,11 +29,12 @@ public class MyArrayList<E> {
 
     /**
      * add a new object to MyArrayList.
+     *
      * @param value object for add.
      * @return this MyArrayList
      */
     public MyArrayList add(E value) {
-        if (array.length == pointer){
+        if (array.length == pointer) {
             resize();
         }
         array[pointer] = value;
@@ -41,16 +44,17 @@ public class MyArrayList<E> {
 
     /**
      * remove an object from MyArrayList.
-     * @param index  index of object in the storage.
+     *
+     * @param index index of object in the storage.
      * @return this MyArrayList
      */
-    public MyArrayList remove(int index){
+    public MyArrayList remove(int index) {
         //if index is bigger than count of element in array or index < 0
-        if (index >= pointer || index < 0 ){
+        if (index >= pointer || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         //if index is the last element in array of objects
-        if (index == pointer -1){
+        if (index == pointer - 1) {
             array[index] = null;
             pointer--;
             return this;
@@ -67,6 +71,7 @@ public class MyArrayList<E> {
 
     /**
      * delete all objects in the MyArrayList.
+     *
      * @return this MyArrayList
      */
     public MyArrayList clear() {
@@ -83,7 +88,7 @@ public class MyArrayList<E> {
     }
 
     /**
-     * @param index  index of object in the storage.
+     * @param index index of object in the storage.
      * @return element from the MyArrayList with index
      */
     public E get(int index) {
@@ -99,7 +104,7 @@ public class MyArrayList<E> {
     /**
      * Increase length of array for objects
      */
-    private void resize(){
+    private void resize() {
         int newSize = (int) (pointer * 1.5);
         E[] newArray = (E[]) Array.newInstance(clazz, newSize);
         if (pointer >= 0)

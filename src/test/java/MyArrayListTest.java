@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyArrayListTest {
-    private MyArrayList myArrayList;
+    private MyArrayList<Integer> myArrayList;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {

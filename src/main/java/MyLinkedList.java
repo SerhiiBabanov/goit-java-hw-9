@@ -14,7 +14,8 @@ public class MyLinkedList<E> {
 
     /**
      * add a new object to MyLinkedList.
-     * @param value  object for add.
+     *
+     * @param value object for add.
      * @return this MyLinkedList.
      */
     public MyLinkedList add(E value) {
@@ -37,7 +38,8 @@ public class MyLinkedList<E> {
 
     /**
      * remove an object from MyLinkedList.
-     * @param index  index of object in the storage.
+     *
+     * @param index index of object in the storage.
      * @return this MyLinkedList
      */
     public MyLinkedList remove(int index) {
@@ -65,8 +67,10 @@ public class MyLinkedList<E> {
         }
         return this;
     }
+
     /**
      * delete all objects in the MyLinkedList.
+     *
      * @return this MyLinkedList
      */
     public MyLinkedList clear() {
@@ -75,6 +79,7 @@ public class MyLinkedList<E> {
         countNodes = 0;
         return this;
     }
+
     /**
      * @return return count of objects in the MyLinkedList.
      */
@@ -82,8 +87,9 @@ public class MyLinkedList<E> {
 
         return countNodes;
     }
+
     /**
-     * @param index  index of object in the storage.
+     * @param index index of object in the storage.
      * @return element from the MyLinkedList with index
      */
     public E get(int index) {
